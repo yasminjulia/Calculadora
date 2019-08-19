@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 porcentagem = seekBar.getProgress();
-                textPercent.setText(porcentagem + "%");
+                textPercent.setText(Math.round(porcentagem) + "%");
             }
 
             @Override
@@ -41,16 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        public void calcular() {
-            double valorDigitado = Double.parseDouble(valor.getText().toString());
-            // calcula gorjeta total
+    }
+    public void calcular(){
+        double valorDigitado = Double.parseDouble(valor.getText().toString());
+        // calcula gorjeta total
         double gorjeta = valorDigitado * (porcentagem/100);
         double total = gorjeta + valorDigitado;
         textGorjeta.setText("R$: " + Math.round(gorjeta));
         textTotal.setText("R$: " + total);
 
 
-        }
     }
 
 }
